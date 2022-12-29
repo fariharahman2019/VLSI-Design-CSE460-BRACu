@@ -1,0 +1,17 @@
+// DSCH 2.7a
+// 3/31/2022 8:43:47 AM
+// C:\Users\Fariha Rahman\Desktop\dsch2 (Experiment 4, 5)\Export dsch2\Export dsch2\Export dsch2\inverter_19101038.sch
+
+module inverter_19101038( A,out1);
+ input A;
+ output out1;
+ nmos #(17) nmos(out1,vss,A); // 1.0u 0.12u
+ pmos #(17) pmos(out1,vdd,A); // 2.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+
+// Simulation parameters
+// A CLK 10 10

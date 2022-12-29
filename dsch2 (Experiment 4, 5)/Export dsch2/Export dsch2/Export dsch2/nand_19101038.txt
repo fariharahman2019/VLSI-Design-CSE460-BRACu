@@ -1,0 +1,21 @@
+// DSCH 2.7a
+// 3/31/2022 9:08:46 AM
+// C:\Users\Fariha Rahman\Desktop\dsch2 (Experiment 4, 5)\Export dsch2\Export dsch2\Export dsch2\nand_19101038.sch
+
+module nand_19101038( B,A,out1);
+ input B,A;
+ output out1;
+ nmos #(10) nmos(w2,vss,B); // 1.0u 0.12u
+ nmos #(24) nmos(out1,w2,A); // 1.0u 0.12u
+ pmos #(24) pmos(out1,vdd,A); // 2.0u 0.12u
+ pmos #(24) pmos(out1,vdd,B); // 2.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 B=~B;
+#2000 A=~A;
+
+// Simulation parameters
+// B CLK 10 10
+// A CLK 20 20

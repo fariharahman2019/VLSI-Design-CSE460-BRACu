@@ -1,0 +1,39 @@
+// DSCH 2.7a
+// 3/31/2022 9:57:22 AM
+// C:\Users\Fariha Rahman\Desktop\dsch2 (Experiment 4, 5)\Export dsch2\Export dsch2\Export dsch2\d_latch_19101038.sch
+
+module d_latch_19101038( clk,D,out3,out2);
+ input clk,D;
+ output out3,out2;
+ wire w8,w9,w10,w11;
+ nand #(48) nand_19101038(out3,w1,out2);
+ nand #(48) nand_19101038(out2,out3,w4);
+ nand #(41) nand_19101038(w1,D,clk);
+ nand #(41) nand_19101038(w4,clk,w7);
+ not #(17) inv(w7,D);
+ nmos #(12) nmos_na1(w8,vss,w1); //  
+ nmos #(47) nmos_na2(out3,w8,out2); //  
+ pmos #(47) pmos_na3(out3,vdd,out2); //  
+ pmos #(47) pmos_na4(out3,vdd,w1); //  
+ nmos #(12) nmos_na5(w9,vss,out3); //  
+ nmos #(47) nmos_na6(out2,w9,w4); //  
+ pmos #(47) pmos_na7(out2,vdd,w4); //  
+ pmos #(47) pmos_na8(out2,vdd,out3); //  
+ nmos #(12) nmos_na9(w10,vss,D); //  
+ nmos #(40) nmos_na10(w1,w10,clk); //  
+ pmos #(40) pmos_na11(w1,vdd,clk); //  
+ pmos #(40) pmos_na12(w1,vdd,D); //  
+ nmos #(12) nmos_na13(w11,vss,clk); //  
+ nmos #(40) nmos_na14(w4,w11,w7); //  
+ pmos #(40) pmos_na15(w4,vdd,w7); //  
+ pmos #(40) pmos_na16(w4,vdd,clk); //  
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 clk=~clk;
+#2000 D=~D;
+
+// Simulation parameters
+// clk CLK 10 10
+// D CLK 20 20

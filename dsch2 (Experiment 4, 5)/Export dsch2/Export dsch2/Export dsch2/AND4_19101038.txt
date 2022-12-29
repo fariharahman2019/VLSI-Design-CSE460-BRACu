@@ -1,0 +1,31 @@
+// DSCH 2.7a
+// 4/28/2022 9:38:04 PM
+// C:\Users\Fariha Rahman\Desktop\dsch2 (Experiment 4, 5)\Export dsch2\Export dsch2\Export dsch2\AND4_19101038.sch
+
+module AND4_19101038( A,C,B,D,out2);
+ input A,C,B,D;
+ output out2;
+ nmos #(42) nmos(w3,w1,A); // 1.0u 0.12u
+ nmos #(7) nmos(w1,w4,B); // 1.0u 0.12u
+ pmos #(42) pmos(w3,vdd,A); // 2.0u 0.12u
+ pmos #(14) pmos(out2,vdd,w3); // 2.0u 0.12u
+ nmos #(14) nmos(out2,vss,w3); // 1.0u 0.12u
+ pmos #(42) pmos(w3,vdd,D); // 2.0u 0.12u
+ pmos #(45) pmos(w3,vdd,C); // 2.0u 0.12u
+ pmos #(45) pmos(w3,vdd,B); // 2.0u 0.12u
+ nmos #(10) nmos(w4,w9,C); // 1.0u 0.12u
+ nmos #(10) nmos(w9,vss,D); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+#2000 C=~C;
+#4000 B=~B;
+#8000 D=~D;
+
+// Simulation parameters
+// A CLK 10 10
+// C CLK 20 20
+// B CLK 40 40
+// D CLK 80 80

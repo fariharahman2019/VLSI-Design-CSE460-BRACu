@@ -1,0 +1,62 @@
+// DSCH 2.7a
+// 4/28/2022 8:57:56 PM
+// example
+
+module example( clk,D,Q`,Q);
+ input clk,D;
+ output Q`,Q;
+ wire w8,w9,w10,w11,w12,w13,w14,w15;
+ wire w16,w17,w18,w19,w20,w21;
+ not #(42) inv(w5,clk);
+ nand #(73) nand_19101038_d_1(Q,w8,Q`);
+ nand #(73) nand_19101038_d_2(Q`,Q,w9);
+ nand #(63) nand_19101038_d_3(w8,w2,clk);
+ nand #(63) nand_19101038_d_4(w9,clk,w10);
+ not #(30) inv_d_5(w10,w2);
+ nmos #(13) nmos_na1_d_6(w11,vss,w8); //  
+ nmos #(73) nmos_na2_d_7(Q,w11,Q`); //  
+ pmos #(73) pmos_na3_d_8(Q,vdd,Q`); //  
+ pmos #(73) pmos_na4_d_9(Q,vdd,w8); //  
+ nmos #(13) nmos_na5_d_10(w12,vss,Q); //  
+ nmos #(73) nmos_na6_d_11(Q`,w12,w9); //  
+ pmos #(73) pmos_na7_d_12(Q`,vdd,w9); //  
+ pmos #(73) pmos_na8_d_13(Q`,vdd,Q); //  
+ nmos #(13) nmos_na9_d_14(w13,vss,w2); //  
+ nmos #(62) nmos_na10_d_15(w8,w13,clk); //  
+ pmos #(62) pmos_na11_d_16(w8,vdd,clk); //  
+ pmos #(62) pmos_na12_d_17(w8,vdd,w2); //  
+ nmos #(13) nmos_na13_d_18(w14,vss,clk); //  
+ nmos #(62) nmos_na14_d_19(w9,w14,w10); //  
+ pmos #(62) pmos_na15_d_20(w9,vdd,w10); //  
+ pmos #(62) pmos_na16_d_21(w9,vdd,clk); //  
+ nand #(94) nand_19101038_d_22(w2,w15,w7);
+ nand #(66) nand_19101038_d_23(w7,w2,w16);
+ nand #(63) nand_19101038_d_24(w15,D,w5);
+ nand #(63) nand_19101038_d_25(w16,w5,w17);
+ not #(30) inv_d_26(w17,D);
+ nmos #(13) nmos_na1_d_27(w18,vss,w15); //  
+ nmos #(94) nmos_na2_d_28(w2,w18,w7); //  
+ pmos #(94) pmos_na3_d_29(w2,vdd,w7); //  
+ pmos #(94) pmos_na4_d_30(w2,vdd,w15); //  
+ nmos #(13) nmos_na5_d_31(w19,vss,w2); //  
+ nmos #(66) nmos_na6_d_32(w7,w19,w16); //  
+ pmos #(66) pmos_na7_d_33(w7,vdd,w16); //  
+ pmos #(66) pmos_na8_d_34(w7,vdd,w2); //  
+ nmos #(13) nmos_na9_d_35(w20,vss,D); //  
+ nmos #(62) nmos_na10_d_36(w15,w20,w5); //  
+ pmos #(62) pmos_na11_d_37(w15,vdd,w5); //  
+ pmos #(62) pmos_na12_d_38(w15,vdd,D); //  
+ nmos #(13) nmos_na13_d_39(w21,vss,w5); //  
+ nmos #(62) nmos_na14_d_40(w16,w21,w17); //  
+ pmos #(62) pmos_na15_d_41(w16,vdd,w17); //  
+ pmos #(62) pmos_na16_d_42(w16,vdd,w5); //  
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 clk=~clk;
+#2000 D=~D;
+
+// Simulation parameters
+// clk CLK 10 10
+// D CLK 20 20

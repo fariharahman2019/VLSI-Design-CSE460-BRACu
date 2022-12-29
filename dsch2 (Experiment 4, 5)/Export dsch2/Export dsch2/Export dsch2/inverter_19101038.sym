@@ -1,0 +1,22 @@
+USER SYMBOL by DSCH 2.7a
+DATE 3/31/2022 8:43:47 AM
+SYM  #inverter_19101038
+BB(0,0,40,20)
+TITLE 10 -2  #inverter_19101038
+MODEL 6000
+REC(5,5,30,10)
+PIN(0,10,0.00,0.00)A
+PIN(40,10,2.00,1.00)out1
+LIG(0,10,5,10)
+LIG(35,10,40,10)
+LIG(5,5,5,15)
+LIG(5,5,35,5)
+LIG(35,5,35,15)
+LIG(35,15,5,15)
+VLG module inverter_19101038( A,out1);
+VLG  input A;
+VLG  output out1;
+VLG  nmos #(17) nmos(out1,vss,A); // 1.0u 0.12u
+VLG  pmos #(17) pmos(out1,vdd,A); // 2.0u 0.12u
+VLG endmodule
+FSYM

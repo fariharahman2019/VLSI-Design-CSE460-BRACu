@@ -1,0 +1,66 @@
+module Problem1_19101038 (Clock, Resten, w, z);
+
+input Clock, Resten, w;
+output reg z;
+
+reg [2:1]y,Y;
+parameter S0=2'b00, S1=2'b01, S2=2'b10, S3=2'b11;
+
+always @(w, y)
+begin
+case (y)
+	
+	S0: if(w)
+			begin
+				Y=S1;
+				z=0;
+			end
+	   
+	   else
+			begin
+				Y=S0;
+				z=0;
+			end
+	
+	S1: if(w)
+			begin
+				Y=S1;
+				z=0;
+			end
+	   
+	   else
+			begin
+				Y=S2;
+				z=0;
+			end
+			
+	S2: if(w)
+			begin
+				Y=S3;
+				z=0;
+			end
+	   
+	   else
+			begin
+				Y=S0;
+				z=0;
+			end
+			
+	S3: if(w)
+			begin
+				Y=S1;
+				z=0;
+			end
+	   
+	   else
+			begin
+				Y=S2;
+				z=1;
+			end
+endcase
+end
+always @(negedge Resten, posedge Clock)
+		if (Resten==0) y<=S0;
+		else y<=Y;
+		
+endmodule
